@@ -9,6 +9,12 @@
 :root{color-scheme:dark;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:#101827;color:#f2f5fa}
 *{box-sizing:border-box}body{margin:0}main{max-width:820px;margin:auto;padding:28px 18px 70px}
 h1{font-size:1.65rem;margin:0 0 8px}p{line-height:1.6}.muted{color:#a9b6ca}
+.registration{border:1px solid #344259;background:#1b293d;border-radius:14px;padding:18px;margin:22px 0}
+.registration h2{font-size:1.08rem;margin:0 0 10px}.registration form{display:flex;gap:8px;flex-wrap:wrap}
+input,select{background:#101827;color:#f2f5fa;border:1px solid #63708a;border-radius:9px;padding:11px 12px;font:inherit;min-width:0}
+input{flex:1;min-width:170px}.hint{font-size:.86rem;color:#a9b6ca;margin:9px 0 0}
+.searchbar{display:flex;gap:9px;flex-wrap:wrap;margin:22px 0 12px}.searchbar input{flex:2}
+.searchbar select{flex:1}.count{font-size:.85rem;color:#a9b6ca}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:24px 0}
 button{background:#376de3;color:white;border:0;border-radius:10px;padding:12px 18px;font-weight:700;cursor:pointer}
 button:disabled{opacity:.6}.card{border:1px solid #344259;background:#1b293d;border-radius:14px;padding:20px;margin:14px 0}
@@ -20,14 +26,63 @@ a{color:#91b8ff}small{color:#a9b6ca}footer{margin-top:28px;font-size:.88rem;colo
 <body><main>
 <h1>📚 漫画の新刊チェッカー</h1>
 <p class="muted">登録した漫画の最新巻と配信開始日をまとめて確認。</p>
+<section class="registration" aria-labelledby="register-title">
+<h2 id="register-title">作品を登録</h2>
+<form id="register-form">
+<input id="series-id" name="series-id" type="text" inputmode="numeric" pattern="[1-9][0-9]{0,9}" maxlength="10" autocomplete="off" placeholder="BOOK☆WALKER シリーズID（例：310137）" aria-label="BOOK☆WALKERシリーズID" required>
+<button type="submit">登録に進む</button>
+</form>
+<p class="hint">シリーズIDを入力するとGitHubの登録確認画面を開きます。GitHubにログインして「Submit new issue」を押すと登録処理が始まります。登録できるのはリポジトリ所有者のみです。</p>
+</section>
+<div class="searchbar"><input id="search" type="search" placeholder="作品名を検索" aria-label="作品名を検索"><select id="sort" aria-label="並び替え"><option value="name">作品名順（日本語）</option><option value="date">配信日の新しい順</option><option value="volume">巻数の多い順</option></select></div>
+<div id="count" class="count"></div>
 <div class="toolbar"><button id="reload">表示を更新</button><span id="updated" class="muted">読み込み中…</span></div>
 <div id="books" aria-live="polite"></div>
-<footer>情報源：BOOK☆WALKER。自動取得は原則1日1回。発売予定日の取得は今後の実装対象です。作品の追加は現在GitHubの series.json から行います。</footer>
+<footer>情報源：BOOK☆WALKER。自動取得は原則1日1回。配信予定日の取得にも対応しています。作品登録はGitHubで確定してください。五十音の見出し分けは今後、読み仮名データの整備後に実装します。</footer>
 </main>
 <script>
 const books=document.querySelector('#books');
 const updated=document.querySelector('#updated');
 const button=document.querySelector('#reload');
+const search=document.querySelector('#search');
+const sort=document.querySelector('#sort');
+const count=document.querySelector('#count');
+let allBooks=[];
+const collator=new Intl.Collator('ja',{numeric:true,sensitivity:'base'});
+document.querySelector('#register-form').addEventListener('submit',event=>{
+ event.preventDefault();
+ const sid=document.querySelector('#series-id').value.trim();
+ if(!/^[1-9][0-9]{0,9}$/.test(sid))return;
+ if(allBooks.some(item=>String(item.id)===sid)){alert('このシリーズIDはすでに登録されています。');return;}
+ const params=new URLSearchParams({title:'manga-register: '+sid,body:'BOOK☆WALKERのシリーズID '+sid+' を登録します。\\n\\nシリーズページ: https://bookwalker.jp/series/'+sid+'/list/'});
+ window.open('https://github.com/cimavip5/manga-checker/issues/new?'+params.toString(),'_blank','noopener,noreferrer');
+});
+function render(){
+ const query=search.value.trim().normalize('NFKC').toLocaleLowerCase('ja');
+ const list=allBooks.filter(item=>(item.name||'').normalize('NFKC').toLocaleLowerCase('ja').includes(query));
+ list.sort((a,b)=>sort.value==='date'
+   ?(b.release_date||'').localeCompare(a.release_date||'')||collator.compare(a.name,b.name)
+   :sort.value==='volume'?(b.volume||0)-(a.volume||0)||collator.compare(a.name,b.name)
+   :collator.compare(a.name,b.name));
+ count.textContent=list.length+'作品を表示 / 登録 '+allBooks.length+'作品';
+ books.replaceChildren();
+ if(!list.length){books.append(el('p','muted',allBooks.length?'該当する作品がありません。':'登録作品がありません。'));return;}
+ for(const item of list){
+   const card=el('article','card');
+   card.append(el('h2','',item.name));
+   const row=el('div','row');
+   const left=el('div');left.append(el('div','muted','最新巻'),el('div','value',item.volume==null?'未取得':item.volume+'巻'));
+   const today=new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Tokyo'});
+   const upcoming=item.release_date && item.release_date>today;
+   const right=el('div');right.append(el('div','muted',upcoming?'配信予定日':'配信開始日'),el('div','value',item.release_date||'未取得'));
+   row.append(left,right);card.append(row);
+   if(item.url){const link=el('a','', 'BOOK☆WALKERで見る ↗');link.href=item.url;link.target='_blank';link.rel='noopener noreferrer';card.append(link);}
+   if(item.status!=='ok')card.append(el('p','warn',item.status==='stale'?'取得失敗：前回の情報を表示中':item.status==='date_missing'?'配信開始日を取得できませんでした':'取得失敗：'+(item.error||'原因不明')));
+   books.append(card);
+ }
+}
+search.addEventListener('input',render);
+sort.addEventListener('change',render);
 function el(tag,cls,value){const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=value;return n;}
 async function load(){
  button.disabled=true;
@@ -36,21 +91,8 @@ async function load(){
   if(!response.ok)throw Error('HTTP '+response.status);
   const data=await response.json();
   updated.textContent=data.updated_at?'最終取得：'+new Date(data.updated_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'}):'初回の自動取得待ち';
-  books.replaceChildren();
-  if(!data.books?.length){books.append(el('p','muted','取得結果はまだありません。GitHub Actionsを実行してください。'));return;}
-  for(const item of data.books){
-   const card=el('article','card');
-   card.append(el('h2','',item.name));
-   const row=el('div','row');
-   const left=el('div');left.append(el('div','muted','最新巻'),el('div','value',item.volume==null?'未取得':item.volume+'巻'));
-   const today=new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'});
-   const upcoming=item.release_date && item.release_date>today;
-   const right=el('div');right.append(el('div','muted',upcoming?'配信予定日':'配信開始日'),el('div','value',item.release_date||'未取得'));
-   row.append(left,right);card.append(row);
-   if(item.url){const link=el('a','', 'BOOK☆WALKERで見る ↗');link.href=item.url;link.target='_blank';link.rel='noopener noreferrer';card.append(link);}
-   if(item.status!=='ok')card.append(el('p','warn',item.status==='stale'?'取得失敗：前回の情報を表示中':item.status==='date_missing'?'配信開始日を取得できませんでした':'取得失敗：'+(item.error||'原因不明')));
-   books.append(card);
-  }
+  allBooks=Array.isArray(data.books)?data.books:[];
+  render();
  }catch(e){updated.textContent='読み込み失敗';books.replaceChildren(el('p','warn',String(e)));}
  finally{button.disabled=false;}
 }
