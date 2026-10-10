@@ -121,6 +121,7 @@ let allBooks=[];
 const pendingOwned=new Map();
 const MAX_PENDING_OWNED=100;
 let selectedGroup=null;
+let focusedSeriesId=null;
 let currentPage='releases';
 function todayJST(){return new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Tokyo'});}
 function ownedValue(item){
@@ -186,8 +187,9 @@ document.querySelector('#submit-owned').addEventListener('click',()=>{
  if(!confirm(records.length+'作品の所持巻をまとめて更新します。\nGitHubの確認画面を開きますか？'))return;
  openRequest('manga-owned: bulk',lines.join('\n'));
 });
-function switchPage(page){
+function switchPage(page,seriesId=null){
  currentPage=page;
+ focusedSeriesId=page==='catalog'?seriesId:null;
  for(const name of ['releases','catalog','register'])document.querySelector('#'+name+'-view').hidden=name!==page;
  for(const tab of tabButtons){const active=tab.dataset.page===page;tab.classList.toggle('active',active);tab.setAttribute('aria-pressed',String(active));}
  render();
@@ -262,6 +264,17 @@ function makeCard(item,management=false){
  }
  const links=el('div','card-actions');
  if(item.url){const a=el('a','','BOOK☆WALKERで見る ↗');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}
+ if(!management){
+  const manage=el('button','secondary','作品の管理へ');
+  manage.type='button';
+  manage.addEventListener('click',()=>{
+   selectedGroup=null;
+   search.value='';
+   switchPage('catalog',String(item.id));
+   document.querySelector('#catalog-detail').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  links.append(manage);
+ }
  if(!management && item.volume!=null && item.release_date && item.release_date<=todayJST()){
   const staged=pendingOwned.get(String(item.id))===item.volume;
   const purchased=el('button','secondary',staged?'追加を取り消す':'この巻を変更リストへ追加');
@@ -308,7 +321,7 @@ function renderCatalog(){
  const query=search.value.trim().normalize('NFKC').toLocaleLowerCase('ja');
  const menu=document.querySelector('#catalog-menu');
  const detail=document.querySelector('#catalog-detail');
- if(selectedGroup===null && !query){
+ if(selectedGroup===null && !query && focusedSeriesId===null){
   menu.hidden=false;detail.hidden=true;
   const grid=document.querySelector('#kana-grid');grid.replaceChildren();
   for(const [key,label] of categories){
@@ -321,15 +334,25 @@ function renderCatalog(){
   return;
  }
  menu.hidden=true;detail.hidden=false;
- const items=allBooks.filter(item=>(selectedGroup===null||kanaGroup(item)===selectedGroup)&&(!query||(item.name||'').normalize('NFKC').toLocaleLowerCase('ja').includes(query)));
+ const items=allBooks.filter(item=>focusedSeriesId!==null
+  ?String(item.id)===focusedSeriesId
+  :(selectedGroup===null||kanaGroup(item)===selectedGroup)&&(!query||(item.name||'').normalize('NFKC').toLocaleLowerCase('ja').includes(query)));
  items.sort((a,b)=>collator.compare(a.reading||a.name,b.reading||b.name));
  const groupLabel=categories.find(x=>x[0]===selectedGroup);
- document.querySelector('#group-name').textContent=query?'検索結果':(groupLabel?groupLabel[1]:'作品一覧');
+ document.querySelector('#group-name').textContent=focusedSeriesId!==null?'作品の管理':query?'検索結果':(groupLabel?groupLabel[1]:'作品一覧');
+ document.querySelector('#back-to-kana').textContent=focusedSeriesId!==null?'← 新刊一覧に戻る':'← 五十音に戻る';
  document.querySelector('#catalog-count').textContent=items.length+'作品 / 登録 '+allBooks.length+'作品';
  fillCards('#catalog-books',items,'該当する作品がありません。',true);
 }
-search.addEventListener('input',()=>{selectedGroup=null;renderCatalog();});
-document.querySelector('#back-to-kana').addEventListener('click',()=>{selectedGroup=null;search.value='';renderCatalog();});
+search.addEventListener('input',()=>{selectedGroup=null;focusedSeriesId=null;renderCatalog();});
+document.querySelector('#back-to-kana').addEventListener('click',()=>{
+ if(focusedSeriesId!==null){
+  switchPage('releases');
+  document.querySelector('#releases-view').scrollIntoView({behavior:'smooth',block:'start'});
+  return;
+ }
+ selectedGroup=null;search.value='';renderCatalog();
+});
 function el(tag,cls,value){const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=value;return n;}
 async function load(){
  button.disabled=true;
