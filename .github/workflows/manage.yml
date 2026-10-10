@@ -10,7 +10,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   manage:
-    if: ${{ github.event.issue.user.login == github.repository_owner && (startsWith(github.event.issue.title, 'manga-owned: ') || startsWith(github.event.issue.title, 'manga-remove: ')) }}
+    if: >-
+      ${{ github.event.issue.user.login == github.repository_owner && (startsWith(github.event.issue.title, 'manga-owned: ') || startsWith(github.event.issue.title, 'manga-remove: ')) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
