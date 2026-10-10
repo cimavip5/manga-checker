@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T12:12:44.323150+00:00",
+  "updated_at": "2026-10-10T12:18:40.692371+00:00",
   "books": [
     {
       "id": "114834",
@@ -329,6 +329,77 @@
       "release_date": "2026-01-23",
       "url": "https://bookwalker.jp/de78406942-1475-4c94-a594-52cfeeb0cdd8/",
       "cover_url": "https://c.bookwalker.jp/5ec58de165512c9e1745aef2d6f5a6f/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "371292",
+      "name": "亡びの国の征服者（ガルドコミックス）",
+      "volume": null,
+      "title": null,
+      "release_date": null,
+      "url": null,
+      "cover_url": null,
+      "status": "error",
+      "error": "巻数を判定できる商品がありません。候補例: ['マンガ 【期間限定\\u3000無料版】亡びの国の征服者 2\\u3000～魔王は世界を征服するようです～ 著者:\\n                                        錆狗村昌\\n                                                他 ガルドコミックス 0 円 (税込) 無', 'マンガ 【期間限定\\u3000無料版】亡びの国の征服者 1\\u3000～魔王は世界を征服するようです～ 著者:\\n                                        錆狗村昌\\n                                                他 ガルドコミックス 0 円 (税込) 無', 'マンガ 亡びの国の征服者 8\\u3000～魔王は世界を征服するようです～ 著者:\\n                                        錆狗村昌\\n                                                他 ガルドコミックス 770 円 (税込) 試し読み カート ', 'マンガ 亡びの国の征服者 7\\u3000～魔王は世界を征服するようです～ 著者:\\n                                        錆狗村昌\\n                                                他 ガルドコミックス 792 円 (税込) 試し読み カート ', 'マンガ 亡びの国の征服者 6\\u3000～魔王は世界を征服するようです～ 著者:\\n                                        錆狗村昌\\n                                                他 ガルドコミックス 759 円 (税込) 試し読み カート ']"
+    },
+    {
+      "id": "426189",
+      "name": "ジョジョの奇妙な冒険 第9部 ザ・ジョジョランズ（ジャンプコミックスDIGITAL）",
+      "volume": 9,
+      "title": "ジョジョの奇妙な冒険 第9部 ザ・ジョジョランズ 9",
+      "release_date": "2026-09-17",
+      "url": "https://bookwalker.jp/deac60d79b-9022-481b-9a75-c416bdf6ef71/",
+      "cover_url": "https://c.bookwalker.jp/c164946f32f95fa42446f72649e7004/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "13152",
+      "name": "HUNTER×HUNTER モノクロ版（ジャンプコミックスDIGITAL）",
+      "volume": 39,
+      "title": "HUNTER×HUNTER モノクロ版 39",
+      "release_date": "2026-07-03",
+      "url": "https://bookwalker.jp/de9abb33d6-040a-4d6d-b0d0-2336f6df2b30/",
+      "cover_url": "https://c.bookwalker.jp/fd09fbdf235806a9764b210e8adc058/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "465346",
+      "name": "ひねくれ騎士とふわふわ姫様　古城暮らしと小さなおうち（ガンガンコミックス）",
+      "volume": 4,
+      "title": "ひねくれ騎士とふわふわ姫様　古城暮らしと小さなおうち 4巻",
+      "release_date": "2026-03-12",
+      "url": "https://bookwalker.jp/deed6f71b5-965b-4a4c-ad15-f5b806d5cc55/",
+      "cover_url": "https://c.bookwalker.jp/824b34e67478f48d6346994ca84dbb5/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "207639",
+      "name": "出来損ないと呼ばれた元英雄は、実家から追放されたので好き勝手に生きることにした@COMIC",
+      "volume": 9,
+      "title": "出来損ないと呼ばれた元英雄は、実家から追放されたので好き勝手に生きることにした@COMIC 第9巻",
+      "release_date": "2024-06-15",
+      "url": "https://bookwalker.jp/decaffa95f-cd69-49da-ba1d-5ebfafafb99e/",
+      "cover_url": "https://c.bookwalker.jp/16aca0df74a8f8b22543227789819ea/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "525838",
+      "name": "瞬きの音（ビッグコミックス）",
+      "volume": 4,
+      "title": "瞬きの音（４）",
+      "release_date": "2026-03-30",
+      "url": "https://bookwalker.jp/de7fdeba5e-228c-40a2-82bb-718badab393f/",
+      "cover_url": "https://c.bookwalker.jp/ef8fae9195c8e88bda40ddb5934bec7/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "107379",
+      "name": "辺境の老騎士　バルド・ローエン（ヤングマガジン サード）",
+      "volume": 13,
+      "title": "辺境の老騎士　バルド・ローエン（１３）",
+      "release_date": "2026-04-20",
+      "url": "https://bookwalker.jp/dea95a2bd9-3787-47ba-9ea4-8a1f8e48dc3e/",
+      "cover_url": "https://c.bookwalker.jp/b412d13e5af9c895b74b667de6c4694/t_700x780.jpg",
       "status": "ok"
     }
   ]
