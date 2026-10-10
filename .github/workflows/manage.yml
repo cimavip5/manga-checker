@@ -25,6 +25,7 @@ jobs:
       - name: Update series management data
         env:
           MANGA_MANAGEMENT_TITLE: ${{ github.event.issue.title }}
+          MANGA_MANAGEMENT_BODY: ${{ github.event.issue.body }}
         run: python scripts/manage.py
       - name: Save management changes
         run: |
