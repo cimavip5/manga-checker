@@ -1,5 +1,11 @@
 name: Update manga releases
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update.py'
+      - 'series.json'
+      - '.github/workflows/update.yml'
   schedule:
     - cron: "17 20 * * *"
   workflow_dispatch:
