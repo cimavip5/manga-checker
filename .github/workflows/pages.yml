@@ -9,6 +9,7 @@ on:
     workflows:
       - 'Update manga releases'
       - 'Register manga series'
+      - 'Manage manga ownership and registration'
     types: [completed]
   workflow_dispatch:
 permissions:
@@ -32,7 +33,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site
-          cp index.html data.json _site/
+          cp index.html data.json series.json _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
