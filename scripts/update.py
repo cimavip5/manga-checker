@@ -3,7 +3,7 @@ import re
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -61,10 +61,30 @@ def release_date(soup):
     return None
 
 
+def cover_image_url(soup):
+    """Find the product's cover image URL from its social image metadata."""
+    for selector, attribute in (
+        ('meta[property="og:image"]', "content"),
+        ('meta[name="twitter:image"]', "content"),
+        ('link[rel="image_src"]', "href"),
+    ):
+        element = soup.select_one(selector)
+        if not element:
+            continue
+        raw = (element.get(attribute) or "").strip()
+        if not raw:
+            continue
+        url = urljoin(BASE, raw)
+        parsed = urlparse(url)
+        if parsed.scheme == "https" and parsed.netloc:
+            return url
+    return None
+
+
 def fetch(series):
     sid = str(series["id"])
     result = {"id": sid, "name": series["name"], "volume": None,
-              "title": None, "release_date": None, "url": None, "status": "error"}
+              "title": None, "release_date": None, "url": None, "cover_url": None, "status": "error"}
     try:
         soup = get_html(f"{BASE}/series/{sid}/list/")
         candidates = []
@@ -85,6 +105,7 @@ def fetch(series):
         number, title, url = max(candidates, key=lambda item: item[0])
         result.update(volume=number, title=title, url=url)
         detail = get_html(url)
+        result["cover_url"] = cover_image_url(detail)
         result["release_date"] = release_date(detail)
         result["status"] = "ok" if result["release_date"] else "date_missing"
     except Exception as exc:
@@ -103,7 +124,7 @@ def main():
         current = fetch(item)
         if current["status"] == "error" and str(item["id"]) in old:
             previous = old[str(item["id"])]
-            for field in ("volume", "title", "release_date", "url"):
+            for field in ("volume", "title", "release_date", "url", "cover_url"):
                 current[field] = previous.get(field)
             current["status"] = "stale"
         books.append(current)
