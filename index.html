@@ -41,6 +41,11 @@ button.danger{background:transparent;border:1px solid #95727b;color:#f4bfc5}
 .group-toolbar{display:flex;align-items:center;gap:12px;margin:16px 0}
 .group-toolbar button{padding:9px 12px;background:#273b56}
 .section-empty{padding:14px 0;color:#a9b6ca}
+.book-layout{display:flex;align-items:flex-start;gap:18px}
+.book-cover{flex:0 0 112px;width:112px;aspect-ratio:2/3;object-fit:contain;background:#101827;border:1px solid #344259;border-radius:5px}
+.book-info{flex:1;min-width:0}
+.cover-placeholder{flex:0 0 112px;width:112px;aspect-ratio:2/3;display:grid;place-items:center;background:#162338;border:1px solid #344259;border-radius:5px;color:#a9b6ca;font-size:.8rem;text-align:center;padding:8px}
+@media(max-width:480px){.book-layout{gap:12px}.book-cover,.cover-placeholder{flex-basis:82px;width:82px}.card{padding:14px}.card .card-actions{gap:8px}}
 @media(max-width:480px){main{padding:20px 14px 55px}.tabs button{min-width:0;padding:12px 5px;font-size:.88rem}.kana-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 </head>
@@ -136,17 +141,28 @@ function render(){
 }
 function makeCard(item,management=false){
  const card=el('article','card');
- card.append(el('h3','',item.name));
+ const layout=el('div','book-layout');
+ const imageUrl=typeof item.cover_url==='string' && /^https:\/\//.test(item.cover_url)?item.cover_url:null;
+ let cover;
+ if(imageUrl){
+  cover=el('img','book-cover');
+  cover.src=imageUrl;cover.alt=item.name+'の最新巻表紙';
+  cover.loading='lazy';cover.decoding='async';
+  cover.onerror=()=>{cover.replaceWith(el('div','cover-placeholder','表紙なし'));};
+ }else{cover=el('div','cover-placeholder','表紙なし');}
+ const info=el('div','book-info');
+ info.append(el('h3','',item.name));
+ layout.append(cover,info);card.append(layout);
  const row=el('div','row');
  const left=el('div');
  left.append(el('div','muted','最新巻'),el('div','value',item.volume==null?'未取得':item.volume+'巻'));
  const right=el('div');
  const future=item.release_date&&item.release_date>todayJST();
  right.append(el('div','muted',future?'配信予定日':'配信開始日'),el('div','value',item.release_date||'未取得'));
- row.append(left,right);card.append(row);
+ row.append(left,right);info.append(row);
  const owned=ownedValue(item);
  if(management){
-  card.append(el('p','section-note',owned===null?'所持巻：未設定':'所持巻：'+owned+'巻まで'));
+  info.append(el('p','section-note',owned===null?'所持巻：未設定':'所持巻：'+owned+'巻まで'));
   const actions=el('div','card-actions');
   const label=el('label','', '所持巻');
   const field=el('input');
@@ -164,11 +180,11 @@ function makeCard(item,management=false){
    if(!confirm('「'+item.name+'」を登録解除しますか？\nGitHubでの確定後に一覧から削除されます。'))return;
    openRequest('manga-remove: '+item.id,'登録解除対象: '+item.name+'\nシリーズID: '+item.id);
   });
-  actions.append(label,field,save,remove);card.append(actions);
+  actions.append(label,field,save,remove);info.append(actions);
  }else if(owned===null){
-  card.append(el('p','section-note','所持巻：未設定（作品一覧から設定できます）'));
+  info.append(el('p','section-note','所持巻：未設定（作品一覧から設定できます）'));
  }else{
-  card.append(el('p','section-note','所持巻：'+owned+'巻まで'));
+  info.append(el('p','section-note','所持巻：'+owned+'巻まで'));
  }
  const links=el('div','card-actions');
  if(item.url){const a=el('a','','BOOK☆WALKERで見る ↗');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}
@@ -178,8 +194,8 @@ function makeCard(item,management=false){
   purchased.addEventListener('click',()=>openRequest('manga-owned: '+item.id+': '+item.volume,'所持巻を '+item.volume+' 巻へ更新します。\n作品: '+item.name+'\nシリーズID: '+item.id));
   links.append(purchased);
  }
- if(links.childNodes.length)card.append(links);
- if(item.status && item.status!=='ok')card.append(el('p','warn',item.status==='stale'?'取得失敗：前回の情報を表示中':item.status==='date_missing'?'配信開始日を取得できませんでした':'取得失敗：'+(item.error||'原因不明')));
+ if(links.childNodes.length)info.append(links);
+ if(item.status && item.status!=='ok')info.append(el('p','warn',item.status==='stale'?'取得失敗：前回の情報を表示中':item.status==='date_missing'?'配信開始日を取得できませんでした':'取得失敗：'+(item.error||'原因不明')));
  return card;
 }
 function openRequest(title,body){
