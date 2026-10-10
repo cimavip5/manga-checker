@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T10:20:11.149534+00:00",
+  "updated_at": "2026-10-10T10:24:50.328242+00:00",
   "books": [
     {
       "id": "114834",
@@ -26,6 +26,15 @@
       "title": "BLUE GIANT MOMENTUM（８）",
       "release_date": "2026-06-30",
       "url": "https://bookwalker.jp/de115e8520-db84-4c8c-87d3-713b9ee78b55/",
+      "status": "ok"
+    },
+    {
+      "id": "167653",
+      "name": "天国大魔境（アフタヌーン）",
+      "volume": 14,
+      "title": "天国大魔境（１４）",
+      "release_date": "2026-10-22",
+      "url": "https://bookwalker.jp/dec71824bc-7dec-4e9c-b7f7-67eee27f1b86/",
       "status": "ok"
     }
   ]
