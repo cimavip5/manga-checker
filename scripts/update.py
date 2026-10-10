@@ -28,7 +28,8 @@ def volume_number(title):
     normalized = unicodedata.normalize("NFKC", title)
     patterns = [
         r"\((\d+)\)\s*(?:\[[^\]]*\])?\s*$",
-        r"【\s*(\d+)\s*】\s*(?:【[^】]*】)?\s*$",
+        r"[【\[]\s*(\d+)\s*[】\]]\s*(?:【[^】]*】)?\s*$",
+        r"(\d+)\s*[】\]]\s*$",
         r"(?:第)?(\d+)\s*巻\s*(?:【[^】]*】)?\s*$",
         r"(?:第)?(\d+)\s*話\s*$",
         r"(?<!\d)(\d+)\s*(?:【[^】]*】)?\s*$",
@@ -69,7 +70,8 @@ def fetch(series):
             if number is not None:
                 candidates.append((number, title, urljoin(BASE, anchor["href"])))
         if not candidates:
-            raise ValueError("巻数を判定できる商品がありません")
+            examples = [x.get_text(" ", strip=True)[:160] for x in soup.select("li.m-tile")[:5]]
+            raise ValueError("巻数を判定できる商品がありません。候補例: " + repr(examples))
         number, title, url = max(candidates, key=lambda item: item[0])
         result.update(volume=number, title=title, url=url)
         detail = get_html(url)
