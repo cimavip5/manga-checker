@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T02:55:51.758977+00:00",
+  "updated_at": "2026-10-10T07:21:04.540705+00:00",
   "books": [
     {
       "id": "114834",
@@ -13,12 +13,11 @@
     {
       "id": "310137",
       "name": "本好きの下剋上 第四部",
-      "volume": null,
-      "title": null,
-      "release_date": null,
-      "url": null,
-      "status": "stale",
-      "error": "巻数を判定できる商品がありません"
+      "volume": 13,
+      "title": "本好きの下剋上～司書になるためには手段を選んでいられません～第四部「貴族院の図書館を救いたい！13」",
+      "release_date": "2026-12-10",
+      "url": "https://bookwalker.jp/de75e16e21-756d-4163-9853-921dc9d98f23/",
+      "status": "ok"
     }
   ]
 }
