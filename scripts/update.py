@@ -39,7 +39,28 @@ def volume_number(title):
         match = re.search(pattern, normalized)
         if match:
             return int(match.group(1))
-    return None
+
+    # Some series use Roman numerals for volume numbers (e.g. パラディンXV).
+    # Match only at a token boundary and validate canonical numeral spelling so
+    # ordinary Latin title words cannot accidentally become volume numbers.
+    roman_match = re.search(
+        r"(?<![A-Za-z0-9])([IVXLCDM]+)\s*(?:巻)?\s*(?:【[^】]*】)?\s*$",
+        normalized,
+    )
+    if not roman_match:
+        return None
+    roman = roman_match.group(1)
+    if not re.fullmatch(
+        r"M{0,3}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})",
+        roman,
+    ):
+        return None
+    values = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    return sum(
+        -values[ch] if i + 1 < len(roman) and values[ch] < values[roman[i + 1]] else values[ch]
+        for i, ch in enumerate(roman)
+    )
+
 
 def release_date(soup):
     for label in soup.select("dt"):
