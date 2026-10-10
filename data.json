@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T02:43:27.610630+00:00",
+  "updated_at": "2026-10-10T02:55:51.758977+00:00",
   "books": [
     {
       "id": "114834",
@@ -17,7 +17,7 @@
       "title": null,
       "release_date": null,
       "url": null,
-      "status": "error",
+      "status": "stale",
       "error": "巻数を判定できる商品がありません"
     }
   ]
