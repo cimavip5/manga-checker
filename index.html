@@ -54,7 +54,7 @@ document.querySelector('#register-form').addEventListener('submit',event=>{
  const sid=document.querySelector('#series-id').value.trim();
  if(!/^[1-9][0-9]{0,9}$/.test(sid))return;
  if(allBooks.some(item=>String(item.id)===sid)){alert('このシリーズIDはすでに登録されています。');return;}
- const params=new URLSearchParams({title:'manga-register: '+sid,body:'BOOK☆WALKERのシリーズID '+sid+' を登録します。\\n\\nシリーズページ: https://bookwalker.jp/series/'+sid+'/list/'});
+ const params=new URLSearchParams({title:'manga-register: '+sid,body:'BOOK☆WALKERのシリーズID '+sid+' を登録します。\n\nシリーズページ: https://bookwalker.jp/series/'+sid+'/list/'});
  window.open('https://github.com/cimavip5/manga-checker/issues/new?'+params.toString(),'_blank','noopener,noreferrer');
 });
 function render(){
