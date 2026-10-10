@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T10:56:31.636957+00:00",
+  "updated_at": "2026-10-10T11:24:05.942718+00:00",
   "books": [
     {
       "id": "114834",
@@ -8,6 +8,7 @@
       "title": "１日外出録ハンチョウ（２３）",
       "release_date": "2026-10-06",
       "url": "https://bookwalker.jp/de99c76a3f-fb57-4147-899e-adc403d1bfee/",
+      "cover_url": "https://c.bookwalker.jp/6f8c7674d7af0086e547456eac01ff4/t_700x780.jpg",
       "status": "ok"
     },
     {
@@ -17,6 +18,7 @@
       "title": "本好きの下剋上～司書になるためには手段を選んでいられません～第四部「貴族院の図書館を救いたい！13」",
       "release_date": "2026-12-10",
       "url": "https://bookwalker.jp/de75e16e21-756d-4163-9853-921dc9d98f23/",
+      "cover_url": "https://c.bookwalker.jp/38a90b02d0007ca8fa42ef5c3baae17/t_700x780.jpg",
       "status": "ok"
     },
     {
@@ -26,6 +28,7 @@
       "title": "BLUE GIANT MOMENTUM（８）",
       "release_date": "2026-06-30",
       "url": "https://bookwalker.jp/de115e8520-db84-4c8c-87d3-713b9ee78b55/",
+      "cover_url": "https://c.bookwalker.jp/704fa031f488bba4db4572ff24a0496/t_700x780.jpg",
       "status": "ok"
     },
     {
@@ -35,6 +38,7 @@
       "title": "天国大魔境（１４）",
       "release_date": "2026-10-22",
       "url": "https://bookwalker.jp/dec71824bc-7dec-4e9c-b7f7-67eee27f1b86/",
+      "cover_url": "https://c.bookwalker.jp/16bcbe051fca6dbc614f55593530aa3/t_700x780.jpg",
       "status": "ok"
     }
   ]
