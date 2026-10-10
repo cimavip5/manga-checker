@@ -41,6 +41,18 @@ button.danger{background:transparent;border:1px solid #95727b;color:#f4bfc5}
 .group-toolbar{display:flex;align-items:center;gap:12px;margin:16px 0}
 .group-toolbar button{padding:9px 12px;background:#273b56}
 .section-empty{padding:14px 0;color:#a9b6ca}
+.pending-owned{border:1px solid #7796cd;background:#192c49;padding:18px;border-radius:14px;margin:16px 0 24px}
+.pending-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.pending-head h2{font-size:1.08rem;margin:0}
+.pending-list{margin:12px 0;display:grid;gap:8px}
+.pending-entry{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#101e33;border-radius:8px;padding:10px 12px;flex-wrap:wrap}
+.pending-entry .pending-description{min-width:0;flex:1}
+.pending-entry strong{display:block;overflow-wrap:anywhere;font-size:.9rem}
+.pending-entry small{display:block}
+.pending-owned button{font-size:.88rem;padding:10px 13px}
+.pending-note{font-size:.84rem;color:#b9cae4}
+.pending-owned .pending-submit{width:100%;margin-top:8px}
+.staged-marker{color:#90deb2;font-size:.85rem}
 .book-layout{display:flex;align-items:flex-start;gap:18px}
 .book-cover{flex:0 0 112px;width:112px;aspect-ratio:2/3;object-fit:contain;background:#101827;border:1px solid #344259;border-radius:5px}
 .book-info{flex:1;min-width:0}
@@ -58,6 +70,12 @@ button.danger{background:transparent;border:1px solid #95727b;color:#f4bfc5}
 <button type="button" data-page="register" aria-pressed="false">作品登録</button>
 </nav>
 <div class="toolbar"><button id="reload" type="button">表示を更新</button><span id="updated" class="muted">読み込み中…</span></div>
+<section id="pending-owned" class="pending-owned" aria-label="所持巻の変更リスト" hidden>
+<div class="pending-head"><h2 id="pending-count">所持巻の変更</h2><button type="button" class="secondary" id="discard-owned">すべて取り消す</button></div>
+<div id="pending-list" class="pending-list"></div>
+<p class="pending-note">ここではまだ保存されません。最後にGitHubで1回確定すると、まとめて反映されます。ページを閉じると未確定の変更は消えます。</p>
+<button type="button" id="submit-owned" class="pending-submit">まとめて更新する（GitHubで確認）</button>
+</section>
 <section class="panel" id="releases-view">
 <p class="section-note">まだ所持していない最新巻を表示。所持巻が未設定の作品も確認できるように残します。</p>
 <h2>📅 これから配信される作品</h2>
@@ -100,6 +118,8 @@ const tabButtons=[...document.querySelectorAll('[data-page]')];
 const collator=new Intl.Collator('ja',{numeric:true,sensitivity:'base'});
 const categories=[['あ','あ行'],['か','か行'],['さ','さ行'],['た','た行'],['な','な行'],['は','は行'],['ま','ま行'],['や','や行'],['ら','ら行'],['わ','わ行'],['未分類','未分類']];
 let allBooks=[];
+const pendingOwned=new Map();
+const MAX_PENDING_OWNED=100;
 let selectedGroup=null;
 let currentPage='releases';
 function todayJST(){return new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Tokyo'});}
@@ -114,6 +134,58 @@ function kanaGroup(item){
  const found=sets.find(x=>x[1].includes(ch));
  return found?found[0]:'未分類';
 }
+function stageOwned(item,volume){
+ const id=String(item.id);
+ if(!Number.isInteger(volume)||volume<0||volume>9999){
+  alert('所持巻は0～9999の整数を入力してください。');return;
+ }
+ if(ownedValue(item)===volume){
+  pendingOwned.delete(id);
+ }else if(!pendingOwned.has(id)&&pendingOwned.size>=MAX_PENDING_OWNED){
+  alert('一度に更新できるのは最大'+MAX_PENDING_OWNED+'作品です。');return;
+ }else{
+  pendingOwned.set(id,volume);
+ }
+ render();
+}
+function renderPendingOwned(){
+ const section=document.querySelector('#pending-owned');
+ const list=document.querySelector('#pending-list');
+ const records=[...pendingOwned.entries()].map(([id,volume])=>({item:allBooks.find(b=>String(b.id)===id),id,volume})).filter(record=>record.item);
+ section.hidden=records.length===0;
+ document.querySelector('#pending-count').textContent='所持巻の変更：'+records.length+'作品';
+ list.replaceChildren();
+ for(const record of records){
+  const line=el('div','pending-entry');
+  const description=el('div','pending-description');
+  description.append(el('strong','',record.item.name));
+  const oldVolume=ownedValue(record.item);
+  description.append(el('small','', (oldVolume===null?'未設定':oldVolume+'巻')+' → '+record.volume+'巻'));
+  const cancel=el('button','secondary','取り消す');
+  cancel.type='button';
+  cancel.addEventListener('click',()=>{pendingOwned.delete(record.id);render();});
+  line.append(description,cancel);list.append(line);
+ }
+}
+document.querySelector('#discard-owned').addEventListener('click',()=>{
+ if(!pendingOwned.size)return;
+ if(!confirm('所持巻の未確定の変更をすべて取り消しますか？'))return;
+ pendingOwned.clear();render();
+});
+document.querySelector('#submit-owned').addEventListener('click',()=>{
+ const records=[...pendingOwned.entries()];
+ if(!records.length)return;
+ if(records.length>MAX_PENDING_OWNED){alert('一括更新の件数上限を超えています。');return;}
+ const lines=[];
+ for(const [id,volume] of records){
+  const item=allBooks.find(x=>String(x.id)===id);
+  if(!item){alert('登録データが変わりました。表示を更新してください。');return;}
+  if(!Number.isInteger(volume)||volume<0||volume>9999){alert('不正な所持巻が含まれています。');return;}
+  lines.push(id+': '+volume);
+ }
+ if(!confirm(records.length+'作品の所持巻をまとめて更新します。\nGitHubの確認画面を開きますか？'))return;
+ openRequest('manga-owned: bulk',lines.join('\n'));
+});
 function switchPage(page){
  currentPage=page;
  for(const name of ['releases','catalog','register'])document.querySelector('#'+name+'-view').hidden=name!==page;
@@ -138,6 +210,7 @@ document.querySelector('#register-form').addEventListener('submit',event=>{
 function render(){
  if(currentPage==='releases')renderReleases();
  if(currentPage==='catalog')renderCatalog();
+ renderPendingOwned();
 }
 function makeCard(item,management=false){
  const card=el('article','card');
@@ -168,12 +241,13 @@ function makeCard(item,management=false){
   const field=el('input');
   field.type='number';field.min='0';field.max='9999';field.step='1';
   field.placeholder='巻数';field.setAttribute('aria-label',item.name+'の所持巻数');
-  if(owned!==null)field.value=String(owned);
-  const save=el('button','secondary','所持巻を更新');
+  if(pendingOwned.has(String(item.id)))field.value=String(pendingOwned.get(String(item.id)));
+  else if(owned!==null)field.value=String(owned);
+  const save=el('button','secondary','変更リストに追加');
   save.type='button';save.addEventListener('click',()=>{
    const value=field.value.trim();
    if(!/^(0|[1-9][0-9]{0,3})$/.test(value)){alert('所持巻は0～9999の整数を入力してください。');return;}
-   openRequest('manga-owned: '+item.id+': '+value,'所持巻を '+value+' 巻へ更新します。\n作品: '+item.name+'\nシリーズID: '+item.id);
+   stageOwned(item,Number(value));
   });
   const remove=el('button','danger','登録解除');
   remove.type='button';remove.addEventListener('click',()=>{
@@ -189,10 +263,17 @@ function makeCard(item,management=false){
  const links=el('div','card-actions');
  if(item.url){const a=el('a','','BOOK☆WALKERで見る ↗');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}
  if(!management && item.volume!=null && item.release_date && item.release_date<=todayJST()){
-  const purchased=el('button','secondary','この巻を所持済みにする');
+  const staged=pendingOwned.get(String(item.id))===item.volume;
+  const purchased=el('button','secondary',staged?'追加を取り消す':'この巻を変更リストへ追加');
   purchased.type='button';
-  purchased.addEventListener('click',()=>openRequest('manga-owned: '+item.id+': '+item.volume,'所持巻を '+item.volume+' 巻へ更新します。\n作品: '+item.name+'\nシリーズID: '+item.id));
+  purchased.addEventListener('click',()=>{
+   if(staged){pendingOwned.delete(String(item.id));render();}
+   else stageOwned(item,item.volume);
+  });
   links.append(purchased);
+ }
+ if(pendingOwned.has(String(item.id))){
+  info.append(el('p','staged-marker','所持巻 '+pendingOwned.get(String(item.id))+'巻：変更リストに追加済み'));
  }
  if(links.childNodes.length)info.append(links);
  if(item.status && item.status!=='ok')info.append(el('p','warn',item.status==='stale'?'取得失敗：前回の情報を表示中':item.status==='date_missing'?'配信開始日を取得できませんでした':'取得失敗：'+(item.error||'原因不明')));
@@ -265,6 +346,10 @@ async function load(){
   updated.textContent=data.updated_at?'最終取得：'+new Date(data.updated_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'}):'初回の自動取得待ち';
   const byId=new Map((Array.isArray(data.books)?data.books:[]).map(item=>[String(item.id),item]));
   allBooks=series.map(item=>({...byId.get(String(item.id)),...item,id:String(item.id)}));
+  for(const [id,volume] of pendingOwned){
+   const current=allBooks.find(item=>String(item.id)===id);
+   if(!current || ownedValue(current)===volume)pendingOwned.delete(id);
+  }
   render();
  }catch(e){updated.textContent='読み込み失敗';allBooks=[];render();alert(String(e));}
  finally{button.disabled=false;}
