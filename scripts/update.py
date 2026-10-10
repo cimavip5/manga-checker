@@ -30,6 +30,7 @@ def volume_number(title):
         r"\((\d+)\)\s*(?:\[[^\]]*\])?\s*$",
         r"[【\[]\s*(\d+)\s*[】\]]\s*(?:【[^】]*】)?\s*$",
         r"(\d+)\s*[】\]]\s*$",
+        r"(?<!\d)(\d+)\s*[」』]\s*(?:【[^】]*】)?\s*$",
         r"(?:第)?(\d+)\s*巻\s*(?:【[^】]*】)?\s*$",
         r"(?:第)?(\d+)\s*話\s*$",
         r"(?<!\d)(\d+)\s*(?:【[^】]*】)?\s*$",
@@ -48,6 +49,15 @@ def release_date(soup):
                 match = re.search(r"(20\d{2})\s*[/-]\s*(\d{1,2})\s*[/-]\s*(\d{1,2})", value.get_text(" ", strip=True))
                 if match:
                     return f"{int(match.group(1)):04d}-{int(match.group(2)):02d}-{int(match.group(3)):02d}"
+
+    # Pre-order pages show "2026/12/10(木) 配信予定" rather than a release-date field.
+    text = soup.get_text(" ", strip=True)
+    match = re.search(
+        r"(20\d{2})\s*[/-]\s*(\d{1,2})\s*[/-]\s*(\d{1,2})\s*(?:\([^)]*\))?\s*配信予定",
+        text,
+    )
+    if match:
+        return f"{int(match.group(1)):04d}-{int(match.group(2)):02d}-{int(match.group(3)):02d}"
     return None
 
 
