@@ -24,6 +24,8 @@ jobs:
       - name: Register series
         env:
           MANGA_REGISTRATION_TITLE: ${{ github.event.issue.title }}
+          MANGA_REGISTRATION_BODY: ${{ github.event.issue.body }}
+          MANGA_REGISTRATION_REPORT_PATH: ${{ runner.temp }}/manga-registration-report.md
         run: python scripts/register.py
       - name: Update manga releases
         run: python scripts/update.py
@@ -37,9 +39,16 @@ jobs:
             git pull --rebase
             git push
           fi
+      - name: Report registration results to Issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REPORT_PATH: ${{ runner.temp }}/manga-registration-report.md
+        run: gh issue comment "$ISSUE_NUMBER" --body-file "$REPORT_PATH"
       - name: Close registration request
         if: success()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-        run: gh issue close "$ISSUE_NUMBER" --comment "登録処理が完了しました。作品一覧に反映されるまで少し時間がかかる場合があります。"
+        run: gh issue close "$ISSUE_NUMBER"
