@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T11:24:05.942718+00:00",
+  "updated_at": "2026-10-10T12:03:29.645951+00:00",
   "books": [
     {
       "id": "114834",
@@ -39,6 +39,297 @@
       "release_date": "2026-10-22",
       "url": "https://bookwalker.jp/dec71824bc-7dec-4e9c-b7f7-67eee27f1b86/",
       "cover_url": "https://c.bookwalker.jp/16bcbe051fca6dbc614f55593530aa3/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "116591",
+      "name": "青野くんに触りたいから死にたい（アフタヌーン）",
+      "volume": 13,
+      "title": "青野くんに触りたいから死にたい（１３）",
+      "release_date": "2025-08-22",
+      "url": "https://bookwalker.jp/de4455094d-46f1-46dc-9f49-b18f96bb50e4/",
+      "cover_url": "https://c.bookwalker.jp/d93865f45f0468b9ee40b2900055d8f/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "226586",
+      "name": "エリスの聖杯（ガンガンコミックスＵＰ！）",
+      "volume": 15,
+      "title": "エリスの聖杯 15巻",
+      "release_date": "2026-09-07",
+      "url": "https://bookwalker.jp/de5bc32abb-a554-47e2-9ab9-c31194f95839/",
+      "cover_url": "https://c.bookwalker.jp/15f006b8c46558839c48f92d7b37648/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "333311",
+      "name": "乙女ゲームのヒロインで最強サバイバル@COMIC",
+      "volume": 9,
+      "title": "乙女ゲームのヒロインで最強サバイバル@COMIC 第9巻",
+      "release_date": "2026-10-15",
+      "url": "https://bookwalker.jp/de7a8d696b-1f1d-41fb-8542-4e2a04ba8042/",
+      "cover_url": "https://c.bookwalker.jp/c4e11be69341ad9f264e4e65a7fa63e/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "336786",
+      "name": "片田舎のおっさん、剣聖になる～ただの田舎の剣術師範だったのに、大成した弟子たちが俺を放ってくれない件～（ヤングチャンピオン・コミックス）",
+      "volume": 9,
+      "title": "片田舎のおっさん、剣聖になる～ただの田舎の剣術師範だったのに、大成した弟子たちが俺を放ってくれない件～　9",
+      "release_date": "2026-06-26",
+      "url": "https://bookwalker.jp/ded3162d6d-e5f0-422a-91e7-3e176557b0ec/",
+      "cover_url": "https://c.bookwalker.jp/5659209b665a49a631420a07d532f6c/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "10368",
+      "name": "機動戦士Zガンダム Define（角川コミックス・エース）",
+      "volume": 22,
+      "title": "機動戦士Zガンダム Define　シャア・アズナブル グリプス戦役 22",
+      "release_date": "2026-01-23",
+      "url": "https://bookwalker.jp/ded0d22e6b-9e72-4bc6-b9da-b3cb9cf4048c/",
+      "cover_url": "https://c.bookwalker.jp/14b3eac43bbfbaadbe468dac925948c/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "208811",
+      "name": "航宙軍士官、冒険者になる（電撃コミックスNEXT）",
+      "volume": 10,
+      "title": "航宙軍士官、冒険者になる10",
+      "release_date": "2026-07-27",
+      "url": "https://bookwalker.jp/deb7acd612-e3cd-4c98-a464-5cd8b0c13d77/",
+      "cover_url": "https://c.bookwalker.jp/513876ebc6abf59aab4cd0f65e28d08/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "372717",
+      "name": "ザ・ゲームスターズ（モーニング・ツー）",
+      "volume": 7,
+      "title": "ザ・ゲームスターズ（７）",
+      "release_date": "2026-09-18",
+      "url": "https://bookwalker.jp/deb934365b-c91f-4e5d-aa03-40188c413828/",
+      "cover_url": "https://c.bookwalker.jp/e5fb8bd483912f975340b65e3b177a2/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "156133",
+      "name": "最果てのパラディン（ガルドコミックス）",
+      "volume": null,
+      "title": null,
+      "release_date": null,
+      "url": null,
+      "cover_url": null,
+      "status": "error",
+      "error": "巻数を判定できる商品がありません。候補例: ['マンガ 【期間限定\\u3000無料版】最果てのパラディンIII 著者:\\n                                        奥橋睦\\n                                                他 ガルドコミックス 0 円 (税込) 無料で読む カート カートを見る', 'マンガ 【期間限定\\u3000無料版】最果てのパラディンII 著者:\\n                                        奥橋睦\\n                                                他 ガルドコミックス 0 円 (税込) 無料で読む カート カートを見る', 'マンガ 【期間限定\\u3000無料版】最果てのパラディンI 著者:\\n                                        奥橋睦\\n                                                他 ガルドコミックス 0 円 (税込) 無料で読む カート カートを見る', 'マンガ 最果てのパラディンXV 著者:\\n                                        奥橋睦\\n                                                他 ガルドコミックス 770 円 (税込) 試し読み カート カートを見る', 'マンガ 最果てのパラディンXIV 著者:\\n                                        奥橋睦\\n                                                他 ガルドコミックス 792 円 (税込) 試し読み カート カートを見る']"
+    },
+    {
+      "id": "330641",
+      "name": "雑用付与術師が自分の最強に気付くまで（モンスターコミックス）",
+      "volume": 12,
+      "title": "雑用付与術師が自分の最強に気付くまで（コミック） ： 12",
+      "release_date": "2026-08-25",
+      "url": "https://bookwalker.jp/de03cef032-9eaf-42bf-9575-be53ff228cc4/",
+      "cover_url": "https://c.bookwalker.jp/2a31d5b06fa2399cbf46afa5660ac42/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "155380",
+      "name": "神統記（テオゴニア）（PASH! コミックス）",
+      "volume": 14,
+      "title": "神統記（テオゴニア）（コミック）【電子版特典付】１４",
+      "release_date": "2026-04-03",
+      "url": "https://bookwalker.jp/de5dc7b254-354c-4653-b793-76267d78bbd0/",
+      "cover_url": "https://c.bookwalker.jp/2b808f11b50443ac81460f21789e829/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "206645",
+      "name": "SPY×FAMILY（ジャンプコミックスDIGITAL）",
+      "volume": 18,
+      "title": "SPY×FAMILY 18",
+      "release_date": "2026-11-04",
+      "url": "https://bookwalker.jp/dec1cad0ae-82c1-4be3-b6da-2724bb9bc638/",
+      "cover_url": "https://c.bookwalker.jp/c986178a9792d89bd14cc16f6919963/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "260459",
+      "name": "葬送のフリーレン（少年サンデーコミックス）",
+      "volume": 15,
+      "title": "葬送のフリーレン（１５）",
+      "release_date": "2025-12-18",
+      "url": "https://bookwalker.jp/de249406a2-a2c7-4609-9ab3-096afdd23235/",
+      "cover_url": "https://c.bookwalker.jp/2bbdd3cbc609e78802441d3bb62eb1d/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "293449",
+      "name": "Dジェネシス　ダンジョンが出来て３年（角川コミックス・エース）",
+      "volume": 9,
+      "title": "Dジェネシス　ダンジョンが出来て３年　（９）",
+      "release_date": "2026-10-23",
+      "url": "https://bookwalker.jp/de6ed94ad3-32ca-42ec-865e-641af70363a6/",
+      "cover_url": "https://c.bookwalker.jp/ee336eb60ac32ba6494b5bf2e1a390f/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "214454",
+      "name": "峠鬼（ビームコミックス（ハルタ））",
+      "volume": 9,
+      "title": "峠鬼　９",
+      "release_date": "2026-08-12",
+      "url": "https://bookwalker.jp/de14369328-027b-4664-b04b-160f70eff108/",
+      "cover_url": "https://c.bookwalker.jp/d7d15d2e380e87b3a6475d491beba9b/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "142109",
+      "name": "とんでもスキルで異世界放浪メシ（ガルドコミックス）",
+      "volume": 11,
+      "title": "とんでもスキルで異世界放浪メシ 11",
+      "release_date": "2025-07-25",
+      "url": "https://bookwalker.jp/deec6d8497-6ced-4dd5-975c-a2d2c269b2af/",
+      "cover_url": "https://c.bookwalker.jp/0a5a613139b6529355474e03228008c/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "450961",
+      "name": "二階堂地獄ゴルフ（モーニング）",
+      "volume": 15,
+      "title": "二階堂地獄ゴルフ（１５）",
+      "release_date": "2026-10-22",
+      "url": "https://bookwalker.jp/deae476c11-afd7-465a-b239-edc638ecfe76/",
+      "cover_url": "https://c.bookwalker.jp/fae26d38904f6dbb204de204aaf28b6/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "453724",
+      "name": "ニセモノの錬金術師（MFC）",
+      "volume": 5,
+      "title": "ニセモノの錬金術師　5",
+      "release_date": "2026-02-20",
+      "url": "https://bookwalker.jp/de327aed96-8de9-4e38-94e4-8815d4994b52/",
+      "cover_url": "https://c.bookwalker.jp/95a380def47d4988854209fc7ef9419/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "292654",
+      "name": "貧乏貴族ノードの冒険譚　Nord's Adventure",
+      "volume": 3,
+      "title": "貧乏貴族ノードの冒険譚　Nord's Adventure３",
+      "release_date": "2025-01-10",
+      "url": "https://bookwalker.jp/de0db14459-af7e-41c4-873d-45e24c9d3431/",
+      "cover_url": "https://c.bookwalker.jp/29d29eadc96b92a2c04d18b601ce531/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "254814",
+      "name": "ヘルモード　～やり込み好きのゲーマーは廃設定の異世界で無双する～はじまりの召喚士（アース・スターコミックス）",
+      "volume": 14,
+      "title": "ヘルモード　～やり込み好きのゲーマーは廃設定の異世界で無双する～はじまりの召喚士１４【電子書店共通特典イラスト付】",
+      "release_date": "2026-07-10",
+      "url": "https://bookwalker.jp/de2a6fedb0-74b8-4d6b-8ff0-c58fab77db22/",
+      "cover_url": "https://c.bookwalker.jp/a159a7216b7c66bc0d4363e166abc0d/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "342032",
+      "name": "辺境の錬金術師　～今更予算ゼロの職場に戻るとかもう無理～（MFC）",
+      "volume": 9,
+      "title": "辺境の錬金術師　～今更予算ゼロの職場に戻るとかもう無理～ 9",
+      "release_date": "2026-07-23",
+      "url": "https://bookwalker.jp/de373f4e62-e52c-4ff6-81fc-cd7ae0e9a9b2/",
+      "cover_url": "https://c.bookwalker.jp/e0cb205ce16368a4f145f9b9ee826c7/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "78265",
+      "name": "本好きの下剋上 第一部",
+      "volume": 7,
+      "title": "本好きの下剋上～司書になるためには手段を選んでいられません～第一部 「本がないなら作ればいい！ 7」",
+      "release_date": "2018-08-01",
+      "url": "https://bookwalker.jp/de54a3c91e-e32e-4dfe-8448-64e7c7ce36a4/",
+      "cover_url": "https://c.bookwalker.jp/5070503/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "310135",
+      "name": "本好きの下剋上 第二部",
+      "volume": 13,
+      "title": "本好きの下剋上～司書になるためには手段を選んでいられません～第二部 「本のためなら巫女になる！13」",
+      "release_date": "2025-09-15",
+      "url": "https://bookwalker.jp/de6886f92b-fb3a-49f9-8db9-88d2c96879d1/",
+      "cover_url": "https://c.bookwalker.jp/ff3a55f8f69cce8280457c9537bd407/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "310136",
+      "name": "本好きの下剋上 第三部",
+      "volume": 10,
+      "title": "本好きの下剋上～司書になるためには手段を選んでいられません～第三部 「領地に本を広げよう！10」",
+      "release_date": "2026-07-15",
+      "url": "https://bookwalker.jp/deded6b07f-549e-4e81-ade8-83fe2d418a92/",
+      "cover_url": "https://c.bookwalker.jp/36d50d2ffb0b229d1948d965ed7a135/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "574871",
+      "name": "本好きの下剋上　第五部",
+      "volume": 1,
+      "title": "本好きの下剋上 ～司書になるためには手段を選んでいられません～ 第五部 「途絶えた知識を繋げよう！1」",
+      "release_date": "2026-04-15",
+      "url": "https://bookwalker.jp/de2d862dce-d55d-4a57-a847-e2f5a5df059f/",
+      "cover_url": "https://c.bookwalker.jp/8e96243977cabfbf414c747c9e8e086/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "497094",
+      "name": "魔物喰らいの冒険者（ガンガンコミックスＵＰ！）",
+      "volume": 3,
+      "title": "魔物喰らいの冒険者 3巻",
+      "release_date": "2026-03-06",
+      "url": "https://bookwalker.jp/dee15c95dd-bea1-44ec-9bf7-08bbfd56e485/",
+      "cover_url": "https://c.bookwalker.jp/6ba36fdf1f0270bf5b48326f92d6688/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "336111",
+      "name": "水属性の魔法使い@COMIC",
+      "volume": 8,
+      "title": "水属性の魔法使い@COMIC 第8巻",
+      "release_date": "2026-02-15",
+      "url": "https://bookwalker.jp/ded0183084-670a-42ab-ae25-a6778644ac42/",
+      "cover_url": "https://c.bookwalker.jp/cb9e6597578ef383bc42b0a3b218a9f/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "537361",
+      "name": "水属性の魔法使い第2部@COMIC（LEVINコミックス）",
+      "volume": 2,
+      "title": "水属性の魔法使い第2部@COMIC　第2巻",
+      "release_date": "2026-05-15",
+      "url": "https://bookwalker.jp/de401ff64c-ef44-4dbd-bf1c-47bc6b046271/",
+      "cover_url": "https://c.bookwalker.jp/7828b866c987cd9ae64349ba363f580/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "299274",
+      "name": "めざせ豪華客船!!　～船召喚スキルで異世界リッチライフを手に入れろ～（Gファンタジーコミックス）",
+      "volume": 8,
+      "title": "めざせ豪華客船!!　～船召喚スキルで異世界リッチライフを手に入れろ～ 8巻",
+      "release_date": "2026-11-27",
+      "url": "https://bookwalker.jp/de7c271bf7-c034-4333-90fa-74f8dd0ffbd8/",
+      "cover_url": "https://c.bookwalker.jp/2a0f53e8585664afc341c50c32268d2/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "173879",
+      "name": "世界最強の後衛　～迷宮国の新人探索者～（MFC）",
+      "volume": 10,
+      "title": "世界最強の後衛　～迷宮国の新人探索者～　10",
+      "release_date": "2026-01-23",
+      "url": "https://bookwalker.jp/de78406942-1475-4c94-a594-52cfeeb0cdd8/",
+      "cover_url": "https://c.bookwalker.jp/5ec58de165512c9e1745aef2d6f5a6f/t_700x780.jpg",
       "status": "ok"
     }
   ]
