@@ -33,6 +33,8 @@ def volume_number(title):
         r"(?<!\d)(\d+)\s*[」』]\s*(?:【[^】]*】)?\s*$",
         r"(?:第)?(\d+)\s*巻\s*(?:【[^】]*】)?\s*$",
         r"(?:第)?(\d+)\s*話\s*$",
+        # Volume appears before a wave-dash subtitle, e.g. "Title 8 ～subtitle～".
+        r"(?<!\S)(\d{1,3})\s*[～?~][^～?~]+[～?~]\s*(?:【[^】]*】)?\s*$",
         r"(?<!\d)(\d+)\s*(?:【[^】]*】)?\s*$",
     ]
     for pattern in patterns:
