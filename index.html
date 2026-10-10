@@ -74,7 +74,7 @@ button.danger{background:transparent;border:1px solid #95727b;color:#f4bfc5}
 <div class="pending-head"><h2 id="pending-count">所持巻の変更</h2><button type="button" class="secondary" id="discard-owned">すべて取り消す</button></div>
 <div id="pending-list" class="pending-list"></div>
 <p class="pending-note">ここではまだ保存されません。最後にGitHubで1回確定すると、まとめて反映されます。ページを閉じると未確定の変更は消えます。</p>
-<button type="button" id="submit-owned" class="pending-submit">まとめて更新する（GitHubで確認）</button>
+<button type="button" id="submit-owned" class="pending-submit">所持巻の変更をまとめて確定する（GitHubで確認）</button>
 </section>
 <section class="panel" id="releases-view">
 <p class="section-note">まだ所持していない最新巻を表示。所持巻が未設定の作品も確認できるように残します。</p>
@@ -277,7 +277,7 @@ function makeCard(item,management=false){
  }
  if(!management && item.volume!=null && item.release_date && item.release_date<=todayJST()){
   const staged=pendingOwned.get(String(item.id))===item.volume;
-  const purchased=el('button','secondary',staged?'追加を取り消す':'この巻を変更リストへ追加');
+  const purchased=el('button','secondary',staged?'変更リストに追加済み（取り消す）':'最新巻まで所持済みにする');
   purchased.type='button';
   purchased.addEventListener('click',()=>{
    if(staged){pendingOwned.delete(String(item.id));render();}
