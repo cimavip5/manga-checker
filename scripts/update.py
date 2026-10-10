@@ -27,11 +27,11 @@ def volume_number(title):
     import unicodedata
     normalized = unicodedata.normalize("NFKC", title)
     patterns = [
-        r"\\((\\d+)\\)\\s*(?:\\[[^\\]]*\\])?\\s*$",
-        r"【\\s*(\\d+)\\s*】\\s*(?:【[^】]*】)?\\s*$",
-        r"(?:第)?(\\d+)\\s*巻\\s*(?:【[^】]*】)?\\s*$",
-        r"(?:第)?(\\d+)\\s*話\\s*$",
-        r"(?<!\\d)(\\d+)\\s*(?:【[^】]*】)?\\s*$",
+        r"\((\d+)\)\s*(?:\[[^\]]*\])?\s*$",
+        r"【\s*(\d+)\s*】\s*(?:【[^】]*】)?\s*$",
+        r"(?:第)?(\d+)\s*巻\s*(?:【[^】]*】)?\s*$",
+        r"(?:第)?(\d+)\s*話\s*$",
+        r"(?<!\d)(\d+)\s*(?:【[^】]*】)?\s*$",
     ]
     for pattern in patterns:
         match = re.search(pattern, normalized)
