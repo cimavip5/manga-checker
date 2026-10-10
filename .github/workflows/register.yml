@@ -1,0 +1,45 @@
+name: Register manga series
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: manga-series-writes
+  cancel-in-progress: false
+jobs:
+  register:
+    if: ${{ github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, 'manga-register:') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Register series
+        env:
+          MANGA_REGISTRATION_TITLE: ${{ github.event.issue.title }}
+        run: python scripts/register.py
+      - name: Update manga releases
+        run: python scripts/update.py
+      - name: Save registered series and latest data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add series.json data.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Register manga series and update releases"
+            git pull --rebase
+            git push
+          fi
+      - name: Close registration request
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: gh issue close "$ISSUE_NUMBER" --comment "登録処理が完了しました。作品一覧に反映されるまで少し時間がかかる場合があります。"
