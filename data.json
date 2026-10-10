@@ -1,1 +1,24 @@
-{"updated_at":null,"books":[]}
+{
+  "updated_at": "2026-10-10T02:43:27.610630+00:00",
+  "books": [
+    {
+      "id": "114834",
+      "name": "1日外出録ハンチョウ",
+      "volume": 23,
+      "title": "１日外出録ハンチョウ（２３）",
+      "release_date": "2026-10-06",
+      "url": "https://bookwalker.jp/de99c76a3f-fb57-4147-899e-adc403d1bfee/",
+      "status": "ok"
+    },
+    {
+      "id": "310137",
+      "name": "本好きの下剋上 第四部",
+      "volume": null,
+      "title": null,
+      "release_date": null,
+      "url": null,
+      "status": "error",
+      "error": "巻数を判定できる商品がありません"
+    }
+  ]
+}
