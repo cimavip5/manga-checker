@@ -23,19 +23,21 @@ def get_html(url):
 
 
 def volume_number(title):
-    # Covers (23), （23）, 13巻, 第13巻, and trailing 13【特典】
-    normalized = title.translate(str.maketrans("０１２３４５６７８９（）", "0123456789()"))
+    # Normalize full-width numerals and distinguish numbered volumes from extras.
+    import unicodedata
+    normalized = unicodedata.normalize("NFKC", title)
     patterns = [
-        r"\((\d+)\)\s*(?:【[^】]*】)?\s*$",
-        r"(?:第)?(\d+)\s*巻\s*(?:【[^】]*】)?\s*$",
-        r"(\d+)\s*(?:【[^】]*】)?\s*$",
+        r"\\((\\d+)\\)\\s*(?:\\[[^\\]]*\\])?\\s*$",
+        r"【\\s*(\\d+)\\s*】\\s*(?:【[^】]*】)?\\s*$",
+        r"(?:第)?(\\d+)\\s*巻\\s*(?:【[^】]*】)?\\s*$",
+        r"(?:第)?(\\d+)\\s*話\\s*$",
+        r"(?<!\\d)(\\d+)\\s*(?:【[^】]*】)?\\s*$",
     ]
     for pattern in patterns:
         match = re.search(pattern, normalized)
         if match:
             return int(match.group(1))
     return None
-
 
 def release_date(soup):
     for label in soup.select("dt"):
