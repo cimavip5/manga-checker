@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T23:38:01.261384+00:00",
+  "updated_at": "2026-10-11T05:03:43.009469+00:00",
   "books": [
     {
       "id": "114834",
@@ -399,6 +399,126 @@
       "release_date": "2026-04-20",
       "url": "https://bookwalker.jp/dea95a2bd9-3787-47ba-9ea4-8a1f8e48dc3e/",
       "cover_url": "https://c.bookwalker.jp/b412d13e5af9c895b74b667de6c4694/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "385155",
+      "name": "魔術師クノンは見えている（MFコミックス　アライブシリーズ）",
+      "volume": 8,
+      "title": "魔術師クノンは見えている　８",
+      "release_date": "2026-06-23",
+      "url": "https://bookwalker.jp/de1ba8287f-9b3b-41ef-b1e9-27621e93c0e1/",
+      "cover_url": "https://c.bookwalker.jp/19330ea50fe75bb02f46861923062ad/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "560380",
+      "name": "昴と彗星（ヤングマガジン）",
+      "volume": 3,
+      "title": "昴と彗星（３）",
+      "release_date": "2026-07-06",
+      "url": "https://bookwalker.jp/de8d87412d-72f7-43dc-87ef-66089e3b6742/",
+      "cover_url": "https://c.bookwalker.jp/41e2c11b5bbe1592b24939d29b9e831/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "383498",
+      "name": "転生したらスライムだった件 クレイマンREVENGE（月刊少年シリウス）",
+      "volume": 9,
+      "title": "転生したらスライムだった件　クレイマンＲＥＶＥＮＧＥ（９）",
+      "release_date": "2026-08-07",
+      "url": "https://bookwalker.jp/debf08ab3f-5935-4fcb-a0ea-dcc718cb76e1/",
+      "cover_url": "https://c.bookwalker.jp/4265f89dd3a3679c5d4daf800ab506e/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "317095",
+      "name": "魔法科高校の優等生 2nd Season（電撃コミックスNEXT）",
+      "volume": 7,
+      "title": "魔法科高校の優等生 2nd Season ７",
+      "release_date": "2026-05-27",
+      "url": "https://bookwalker.jp/de29bb099c-10d9-4392-9ffb-d53e9ec993d2/",
+      "cover_url": "https://c.bookwalker.jp/2b378831d0b4e399204dc0c6f237e10/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "442036",
+      "name": "生活魔法使いの下剋上（電撃コミックスNEXT）",
+      "volume": 4,
+      "title": "生活魔法使いの下剋上 4",
+      "release_date": "2025-08-27",
+      "url": "https://bookwalker.jp/deb53f7ab0-6721-4b71-bcc4-52e2ff079acd/",
+      "cover_url": "https://c.bookwalker.jp/a7c1968ed8139fb4de4fb387eb03f42/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "74772",
+      "name": "月が導く異世界道中（アルファポリスCOMICS）",
+      "volume": 17,
+      "title": "月が導く異世界道中17",
+      "release_date": "2026-06-15",
+      "url": "https://bookwalker.jp/dec329788f-7280-4f53-89af-267ff3e80ba8/",
+      "cover_url": "https://c.bookwalker.jp/3f4cf93ecb24839d124e2de63aa3c77/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "390226",
+      "name": "平和の国の島崎へ（モーニング）",
+      "volume": 13,
+      "title": "平和の国の島崎へ（１３）",
+      "release_date": "2026-07-22",
+      "url": "https://bookwalker.jp/de2e1f4432-9bfe-4de4-8b0f-0edc23be22c3/",
+      "cover_url": "https://c.bookwalker.jp/100249c6fb987faae44bdc74522f241/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "394276",
+      "name": "無気力ニートな元神童、冒険者になる（ガルドコミックス）",
+      "volume": 7,
+      "title": "無気力ニートな元神童、冒険者になる 7",
+      "release_date": "2026-08-08",
+      "url": "https://bookwalker.jp/de5efa18e8-a89c-459a-9494-94640d3563ac/",
+      "cover_url": "https://c.bookwalker.jp/bf4bc9e092cf89b4974df45010e1399/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "353912",
+      "name": "黄泉のツガイ（ガンガンコミックス）",
+      "volume": 14,
+      "title": "黄泉のツガイ 14巻",
+      "release_date": "2026-11-12",
+      "url": "https://bookwalker.jp/dea6b3a276-92df-4725-a955-99bdf2bfa24b/",
+      "cover_url": "https://c.bookwalker.jp/2343de7fb6bce09d104caff635c2cea/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "355456",
+      "name": "ジョジョの奇妙な冒険 クレイジー・Dの悪霊的失恋（ジャンプコミックスDIGITAL）",
+      "volume": 3,
+      "title": "ジョジョの奇妙な冒険 クレイジー・Dの悪霊的失恋 3",
+      "release_date": "2023-06-19",
+      "url": "https://bookwalker.jp/de282e62fc-2d49-4cf8-a9df-88140fa1a789/",
+      "cover_url": "https://c.bookwalker.jp/1819356/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "501737",
+      "name": "同志少女よ、敵を撃て（ハヤコミ）",
+      "volume": 4,
+      "title": "同志少女よ、敵を撃て　４",
+      "release_date": "2026-09-16",
+      "url": "https://bookwalker.jp/def0d5ee60-e84a-43a7-b9ef-bef00ac394a8/",
+      "cover_url": "https://c.bookwalker.jp/76dd765c6094a0a3bd4ce0fb95f77a8/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "594638",
+      "name": "本好きの下剋上 フェルディナンドの館にて",
+      "volume": 1,
+      "title": "本好きの下剋上～司書になるためには手段を選んでいられません～　フェルディナンドの館にて 第1巻",
+      "release_date": "2026-07-15",
+      "url": "https://bookwalker.jp/de77abaa9c-39bd-4be9-acee-3dfe712434df/",
+      "cover_url": "https://c.bookwalker.jp/97d3b611d0a9a4a2eb47f0e8803fd3c/t_700x780.jpg",
       "status": "ok"
     }
   ]
