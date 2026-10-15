@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T23:18:31.841837+00:00",
+  "updated_at": "2026-10-15T23:07:03.721075+00:00",
   "books": [
     {
       "id": "114834",
@@ -24,11 +24,11 @@
     {
       "id": "457249",
       "name": "BLUE GIANT MOMENTUM（ビッグコミックススペシャル）",
-      "volume": 8,
-      "title": "BLUE GIANT MOMENTUM（８）",
-      "release_date": "2026-06-30",
-      "url": "https://bookwalker.jp/de115e8520-db84-4c8c-87d3-713b9ee78b55/",
-      "cover_url": "https://c.bookwalker.jp/704fa031f488bba4db4572ff24a0496/t_700x780.jpg",
+      "volume": 9,
+      "title": "BLUE GIANT MOMENTUM（９）",
+      "release_date": "2026-10-30",
+      "url": "https://bookwalker.jp/debe1a44f6-eeb2-4577-889b-5da45b2362a9/",
+      "cover_url": "https://c.bookwalker.jp/901ae41d001fd8accf4ea0e2a87196c/t_700x780.jpg",
       "status": "ok"
     },
     {
@@ -145,7 +145,7 @@
       "id": "206645",
       "name": "SPY×FAMILY（ジャンプコミックスDIGITAL）",
       "volume": 18,
-      "title": "SPY×FAMILY 18",
+      "title": "SPYأ—FAMILY 18",
       "release_date": "2026-11-04",
       "url": "https://bookwalker.jp/dec1cad0ae-82c1-4be3-b6da-2724bb9bc638/",
       "cover_url": "https://c.bookwalker.jp/c986178a9792d89bd14cc16f6919963/t_700x780.jpg",
