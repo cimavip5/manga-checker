@@ -1,7 +1,7 @@
 name: Manage manga ownership and registration
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
 permissions:
   contents: write
   issues: write
@@ -23,14 +23,14 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Update series management data (legacy)
-        if: github.event.issue.title != 'manga-batch: apply'
+        if: "${{ github.event.issue.title != 'manga-batch: apply' }}"
         env:
           MANGA_MANAGEMENT_TITLE: ${{ github.event.issue.title }}
           MANGA_MANAGEMENT_BODY: ${{ github.event.issue.body }}
         run: python scripts/manage.py
       - name: Apply mixed manga management batch
         id: mixed
-        if: github.event.issue.title == 'manga-batch: apply'
+        if: "${{ github.event.issue.title == 'manga-batch: apply' }}"
         env:
           MANGA_MANAGEMENT_TITLE: ${{ github.event.issue.title }}
           MANGA_MANAGEMENT_BODY: ${{ github.event.issue.body }}
