@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-15T23:07:03.721075+00:00",
+  "updated_at": "2026-10-16T01:26:41.745519+00:00",
   "books": [
     {
       "id": "114834",
@@ -509,6 +509,16 @@
       "release_date": "2026-07-15",
       "url": "https://bookwalker.jp/de77abaa9c-39bd-4be9-acee-3dfe712434df/",
       "cover_url": "https://c.bookwalker.jp/97d3b611d0a9a4a2eb47f0e8803fd3c/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "526473",
+      "name": "捨てられ公爵夫人は、平穏な生活をお望みのようです@COMIC（コロナ・コミックス）",
+      "volume": 3,
+      "title": "捨てられ公爵夫人は、平穏な生活をお望みのようです@COMIC 第3巻",
+      "release_date": "2026-10-10",
+      "url": "https://bookwalker.jp/deda65ae59-c638-4cbb-90ff-a0f6c0d2d1d9/",
+      "cover_url": "https://c.bookwalker.jp/478fd98cae1a319d00417446470911c/t_700x780.jpg",
       "status": "ok"
     }
   ]
