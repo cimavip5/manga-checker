@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20T23:14:55.352953+00:00",
+  "updated_at": "2026-10-21T07:21:39.376917+00:00",
   "books": [
     {
       "id": "114834",
@@ -519,6 +519,16 @@
       "release_date": "2026-10-10",
       "url": "https://bookwalker.jp/deda65ae59-c638-4cbb-90ff-a0f6c0d2d1d9/",
       "cover_url": "https://c.bookwalker.jp/478fd98cae1a319d00417446470911c/t_700x780.jpg",
+      "status": "ok"
+    },
+    {
+      "id": "293185",
+      "name": "フールナイト（ビッグコミックス）",
+      "volume": 13,
+      "title": "フールナイト（１３）",
+      "release_date": "2026-06-30",
+      "url": "https://bookwalker.jp/deec409703-487b-4dec-a937-2bea5410520f/",
+      "cover_url": "https://c.bookwalker.jp/36f8dc0bc918168a31499c45ed4f9fe/t_700x780.jpg",
       "status": "ok"
     }
   ]
