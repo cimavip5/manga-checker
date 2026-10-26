@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T22:38:29.507757+00:00",
+  "updated_at": "2026-10-26T23:57:26.643396+00:00",
   "books": [
     {
       "id": "114834",
@@ -145,7 +145,7 @@
       "id": "206645",
       "name": "SPY×FAMILY（ジャンプコミックスDIGITAL）",
       "volume": 18,
-      "title": "SPY×FAMILY 18",
+      "title": "SPYأ—FAMILY 18",
       "release_date": "2026-11-04",
       "url": "https://bookwalker.jp/dec1cad0ae-82c1-4be3-b6da-2724bb9bc638/",
       "cover_url": "https://c.bookwalker.jp/c986178a9792d89bd14cc16f6919963/t_700x780.jpg",
@@ -334,11 +334,11 @@
     {
       "id": "371292",
       "name": "亡びの国の征服者（ガルドコミックス）",
-      "volume": 8,
-      "title": "亡びの国の征服者 8　～魔王は世界を征服するようです～",
-      "release_date": "2026-01-25",
-      "url": "https://bookwalker.jp/de3c513cd1-774a-44f7-8633-f99505076968/",
-      "cover_url": "https://c.bookwalker.jp/a5154f8953222c8b3640cdfb59ffb9f/t_700x780.jpg",
+      "volume": 9,
+      "title": "亡びの国の征服者 9　～魔王は世界を征服するようです～",
+      "release_date": "2026-11-08",
+      "url": "https://bookwalker.jp/de268803f6-c72d-4c19-87ba-0d08e9afb052/",
+      "cover_url": "https://c.bookwalker.jp/73f69ad9e18098be734ea245b0aabf3/t_700x780.jpg",
       "status": "ok"
     },
     {
@@ -414,11 +414,11 @@
     {
       "id": "560380",
       "name": "昴と彗星（ヤングマガジン）",
-      "volume": 3,
-      "title": "昴と彗星（３）",
-      "release_date": "2026-07-06",
-      "url": "https://bookwalker.jp/de8d87412d-72f7-43dc-87ef-66089e3b6742/",
-      "cover_url": "https://c.bookwalker.jp/41e2c11b5bbe1592b24939d29b9e831/t_700x780.jpg",
+      "volume": 4,
+      "title": "昴と彗星（４）",
+      "release_date": "2026-11-06",
+      "url": "https://bookwalker.jp/de9a87086b-02df-4468-8545-b3f6fd8a0137/",
+      "cover_url": "https://c.bookwalker.jp/39146a2f5e0f6294b7453d48711980b/t_700x780.jpg",
       "status": "ok"
     },
     {
@@ -516,10 +516,10 @@
       "name": "捨てられ公爵夫人は、平穏な生活をお望みのようです@COMIC（コロナ・コミックス）",
       "volume": 3,
       "title": "捨てられ公爵夫人は、平穏な生活をお望みのようです@COMIC 第3巻",
-      "release_date": "2026-10-10",
+      "release_date": null,
       "url": "https://bookwalker.jp/deda65ae59-c638-4cbb-90ff-a0f6c0d2d1d9/",
       "cover_url": "https://c.bookwalker.jp/478fd98cae1a319d00417446470911c/t_700x780.jpg",
-      "status": "ok"
+      "status": "date_missing"
     },
     {
       "id": "293185",
