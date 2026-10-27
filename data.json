@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T23:57:26.643396+00:00",
+  "updated_at": "2026-10-27T23:50:11.148203+00:00",
   "books": [
     {
       "id": "114834",
@@ -28,7 +28,7 @@
       "title": "BLUE GIANT MOMENTUM（９）",
       "release_date": "2026-10-30",
       "url": "https://bookwalker.jp/debe1a44f6-eeb2-4577-889b-5da45b2362a9/",
-      "cover_url": "https://c.bookwalker.jp/901ae41d001fd8accf4ea0e2a87196c/t_700x780.jpg",
+      "cover_url": "https://c.bookwalker.jp/5c12f00b87ee6093e94bdd8c61dc36a/t_700x780.jpg",
       "status": "ok"
     },
     {
@@ -145,7 +145,7 @@
       "id": "206645",
       "name": "SPY×FAMILY（ジャンプコミックスDIGITAL）",
       "volume": 18,
-      "title": "SPYأ—FAMILY 18",
+      "title": "SPY×FAMILY 18",
       "release_date": "2026-11-04",
       "url": "https://bookwalker.jp/dec1cad0ae-82c1-4be3-b6da-2724bb9bc638/",
       "cover_url": "https://c.bookwalker.jp/c986178a9792d89bd14cc16f6919963/t_700x780.jpg",
@@ -516,10 +516,10 @@
       "name": "捨てられ公爵夫人は、平穏な生活をお望みのようです@COMIC（コロナ・コミックス）",
       "volume": 3,
       "title": "捨てられ公爵夫人は、平穏な生活をお望みのようです@COMIC 第3巻",
-      "release_date": null,
+      "release_date": "2026-10-10",
       "url": "https://bookwalker.jp/deda65ae59-c638-4cbb-90ff-a0f6c0d2d1d9/",
       "cover_url": "https://c.bookwalker.jp/478fd98cae1a319d00417446470911c/t_700x780.jpg",
-      "status": "date_missing"
+      "status": "ok"
     },
     {
       "id": "293185",
