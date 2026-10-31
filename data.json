@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-30T23:53:44.642709+00:00",
+  "updated_at": "2026-10-31T23:28:06.736053+00:00",
   "books": [
     {
       "id": "114834",
@@ -145,7 +145,7 @@
       "id": "206645",
       "name": "SPY×FAMILY（ジャンプコミックスDIGITAL）",
       "volume": 18,
-      "title": "SPYГ—FAMILY 18",
+      "title": "SPY×FAMILY 18",
       "release_date": "2026-11-04",
       "url": "https://bookwalker.jp/dec1cad0ae-82c1-4be3-b6da-2724bb9bc638/",
       "cover_url": "https://c.bookwalker.jp/c381506e0bab39b81c485164fe98772/t_700x780.jpg",
@@ -365,11 +365,11 @@
     {
       "id": "465346",
       "name": "ひねくれ騎士とふわふわ姫様　古城暮らしと小さなおうち（ガンガンコミックス）",
-      "volume": 4,
-      "title": "ひねくれ騎士とふわふわ姫様　古城暮らしと小さなおうち 4巻",
-      "release_date": "2026-03-12",
-      "url": "https://bookwalker.jp/deed6f71b5-965b-4a4c-ad15-f5b806d5cc55/",
-      "cover_url": "https://c.bookwalker.jp/824b34e67478f48d6346994ca84dbb5/t_700x780.jpg",
+      "volume": 5,
+      "title": "ひねくれ騎士とふわふわ姫様　古城暮らしと小さなおうち 5巻",
+      "release_date": "2026-12-11",
+      "url": "https://bookwalker.jp/de68686eb1-aaed-44ea-973f-ff88a2cc17f0/",
+      "cover_url": "https://c.bookwalker.jp/05ff93ed4092b58dfa4f3d633f4171d/t_700x780.jpg",
       "status": "ok"
     },
     {
@@ -487,10 +487,10 @@
       "name": "黄泉のツガイ（ガンガンコミックス）",
       "volume": 14,
       "title": "黄泉のツガイ 14巻",
-      "release_date": "2026-11-12",
+      "release_date": null,
       "url": "https://bookwalker.jp/dea6b3a276-92df-4725-a955-99bdf2bfa24b/",
       "cover_url": "https://c.bookwalker.jp/2343de7fb6bce09d104caff635c2cea/t_700x780.jpg",
-      "status": "ok"
+      "status": "date_missing"
     },
     {
       "id": "501737",
@@ -517,10 +517,10 @@
       "name": "捨てられ公爵夫人は、平穏な生活をお望みのようです@COMIC（コロナ・コミックス）",
       "volume": 3,
       "title": "捨てられ公爵夫人は、平穏な生活をお望みのようです@COMIC 第3巻",
-      "release_date": null,
+      "release_date": "2026-10-10",
       "url": "https://bookwalker.jp/deda65ae59-c638-4cbb-90ff-a0f6c0d2d1d9/",
       "cover_url": "https://c.bookwalker.jp/478fd98cae1a319d00417446470911c/t_700x780.jpg",
-      "status": "date_missing"
+      "status": "ok"
     },
     {
       "id": "293185",
