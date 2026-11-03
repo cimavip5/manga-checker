@@ -27,8 +27,8 @@ jobs:
           MANGA_REGISTRATION_BODY: ${{ github.event.issue.body }}
           MANGA_REGISTRATION_REPORT_PATH: ${{ runner.temp }}/manga-registration-report.md
         run: python scripts/register.py
-      - name: Update manga releases
-        run: python scripts/update.py
+      - name: Fetch only newly registered manga releases
+        run: python scripts/update.py --new-only
       - name: Save registered series and latest data
         run: |
           git config user.name "github-actions[bot]"
