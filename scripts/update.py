@@ -1,3 +1,4 @@
+import argparse
 import json
 import re
 import time
@@ -137,25 +138,48 @@ def fetch(series):
     return result
 
 
-def main():
+def main(new_only=False):
+    """Refresh all series on schedule, or fetch just missing IDs after registration."""
     series = json.loads((ROOT / "series.json").read_text(encoding="utf-8"))
     prior_path = ROOT / "data.json"
     prior = json.loads(prior_path.read_text(encoding="utf-8")) if prior_path.exists() else {}
     old = {str(x["id"]): x for x in prior.get("books", [])}
+
     books = []
+    checked = 0
     for item in series:
+        sid = str(item["id"])
+        if new_only and sid in old:
+            # Keep the existing cover, release date and status without a network request.
+            books.append(old[sid])
+            continue
+
+        if checked:
+            time.sleep(1)
         current = fetch(item)
-        if current["status"] == "error" and str(item["id"]) in old:
-            previous = old[str(item["id"])]
+        if current["status"] == "error" and sid in old:
+            previous = old[sid]
             for field in ("volume", "title", "release_date", "url", "cover_url"):
                 current[field] = previous.get(field)
             current["status"] = "stale"
         books.append(current)
-        time.sleep(1)
-    output = {"updated_at": datetime.now(timezone.utc).isoformat(), "books": books}
+        checked += 1
+
+    # Ownership-only changes do not modify latest-release data or trigger a new
+    # data.json commit. Removed IDs are pruned even when no requests are made.
+    if new_only and checked == 0 and books == prior.get("books", []):
+        print("新規シリーズなし: BOOK☆WALKERへの問い合わせ0件（data.json変更なし）")
+        return
+
+    output = {**prior, "updated_at": datetime.now(timezone.utc).isoformat(), "books": books}
     prior_path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(output, ensure_ascii=False, indent=2))
+    print(f"新刊取得: {checked}作品 / 登録: {len(series)}作品 / モード: {'新規のみ' if new_only else '全件'}")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Refresh manga release data.")
+    parser.add_argument(
+        "--new-only", action="store_true",
+        help="Fetch only IDs missing from data.json; preserve existing records.",
+    )
+    main(new_only=parser.parse_args().new_only)
