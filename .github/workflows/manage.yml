@@ -48,7 +48,7 @@ jobs:
           PY
       - name: Update latest manga data for newly registered series
         if: steps.mixed.outputs.has_add == 'true'
-        run: python scripts/update.py
+        run: python scripts/update.py --new-only
       - name: Save management changes
         run: |
           git config user.name "github-actions[bot]"
