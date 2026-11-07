@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-07T00:09:48.110842+00:00",
+  "updated_at": "2026-11-07T23:40:58.809155+00:00",
   "books": [
     {
       "id": "114834",
@@ -226,10 +226,10 @@
       "name": "ヘルモード　～やり込み好きのゲーマーは廃設定の異世界で無双する～はじまりの召喚士（アース・スターコミックス）",
       "volume": 15,
       "title": "ヘルモード　～やり込み好きのゲーマーは廃設定の異世界で無双する～はじまりの召喚士１５【電子書店共通特典イラスト付】",
-      "release_date": null,
+      "release_date": "2026-11-12",
       "url": "https://bookwalker.jp/de52be90e7-6147-47fe-a33b-2e924e9e286c/",
       "cover_url": "https://c.bookwalker.jp/6bfd7004f624a38c98416fd0d405112/t_700x780.jpg",
-      "status": "date_missing"
+      "status": "ok"
     },
     {
       "id": "342032",
