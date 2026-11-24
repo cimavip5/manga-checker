@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-23T00:57:38.468928+00:00",
+  "updated_at": "2026-11-24T04:51:28.990825+00:00",
   "books": [
     {
       "id": "114834",
@@ -446,10 +446,10 @@
       "name": "生活魔法使いの下剋上（電撃コミックスNEXT）",
       "volume": 4,
       "title": "生活魔法使いの下剋上 4",
-      "release_date": "2025-08-27",
+      "release_date": null,
       "url": "https://bookwalker.jp/deb53f7ab0-6721-4b71-bcc4-52e2ff079acd/",
       "cover_url": "https://c.bookwalker.jp/a7c1968ed8139fb4de4fb387eb03f42/t_700x780.jpg",
-      "status": "ok"
+      "status": "date_missing"
     },
     {
       "id": "74772",
