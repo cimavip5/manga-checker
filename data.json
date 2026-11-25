@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24T04:51:28.990825+00:00",
+  "updated_at": "2026-11-25T03:35:23.774735+00:00",
   "books": [
     {
       "id": "114834",
@@ -446,10 +446,10 @@
       "name": "生活魔法使いの下剋上（電撃コミックスNEXT）",
       "volume": 4,
       "title": "生活魔法使いの下剋上 4",
-      "release_date": null,
+      "release_date": "2025-08-27",
       "url": "https://bookwalker.jp/deb53f7ab0-6721-4b71-bcc4-52e2ff079acd/",
       "cover_url": "https://c.bookwalker.jp/a7c1968ed8139fb4de4fb387eb03f42/t_700x780.jpg",
-      "status": "date_missing"
+      "status": "ok"
     },
     {
       "id": "74772",
@@ -528,7 +528,7 @@
       "title": "フールナイト（１４）",
       "release_date": "2026-11-30",
       "url": "https://bookwalker.jp/dea4478f38-e1f3-4431-b4d6-c8e296708d82/",
-      "cover_url": "https://c.bookwalker.jp/ec1d00cf7e7dd4a6e649cd3bb791f00/t_700x780.jpg",
+      "cover_url": "https://c.bookwalker.jp/639a3d59a71c36a88241fe8155f8d35/t_700x780.jpg",
       "status": "ok"
     },
     {
